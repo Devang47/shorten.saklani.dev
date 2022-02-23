@@ -1,11 +1,13 @@
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  mode: 'jit',
+  content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    colors: {},
     fontFamily: {},
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 };
