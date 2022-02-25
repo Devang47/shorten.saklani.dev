@@ -1,10 +1,22 @@
 <script lang="ts">
-  import axios from 'axios'
+  import { toast } from '@zerodevx/svelte-toast';
+  import { createShortURL } from '$utils/methods/create';
 
-  const createShortURL = () => {
-    axios.get('')
-  }
+  let input = '';
+  const handleCreate = async () => {
+    console.log('btn ckick');
+    toast.push('started');
 
+    const response = await createShortURL(input, import.meta.env.VITE_PRIVATEKEY as string);
+
+    if (response.error) {
+      toast.push(response.error, { classes: ['custom'] });
+      return;
+    }
+
+    input = response.result;
+    toast.push('Styled with custom class', { classes: ['custom'] });
+  };
 </script>
 
 <div class="relative overflow-hidden">
@@ -54,12 +66,13 @@
                 This is a custom url shortener which is used to minify URL.
               </p>
               <div class="mt-10 sm:mt-12">
-                <form action="#" class="sm:max-w-xl sm:mx-auto lg:mx-0">
+                <div class="sm:max-w-xl sm:mx-auto lg:mx-0">
                   <div class="sm:flex">
                     <div class="min-w-0 flex-1">
                       <label for="url" class="sr-only">Enter URL:</label>
                       <input
                         id="url"
+                        bind:value={input}
                         type="url"
                         placeholder="Enter your url"
                         class="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300 focus:ring-offset-gray-900"
@@ -67,13 +80,14 @@
                     </div>
                     <div class="mt-3 sm:mt-0 sm:ml-3">
                       <button
+                        on:click={handleCreate}
                         type="submit"
                         class="block w-full py-3 px-4 rounded-md shadow bg-indigo-500 text-white font-medium hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300 focus:ring-offset-gray-900"
                         >Shorten</button
                       >
                     </div>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>
