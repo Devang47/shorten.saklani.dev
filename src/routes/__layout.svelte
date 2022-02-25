@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-  <title>Svelte-Tailwind Starter</title>
+  <title>Custom URL Shortener</title>
 </svelte:head>
 
 <slot />

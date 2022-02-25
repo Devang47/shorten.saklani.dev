@@ -1,5 +1,8 @@
 <script lang="ts">
-  import Main from "$pages/Main/index.svelte";
+  import Header from '$lib/components/Header.svelte';
+
+  import Main from '$pages/Main/index.svelte';
 </script>
 
+<Header />
 <Main />

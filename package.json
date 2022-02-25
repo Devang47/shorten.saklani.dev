@@ -38,6 +38,9 @@
   "dependencies": {
     "@rgossiaux/svelte-headlessui": "^1.0.0-beta.9",
     "@sveltejs/adapter-static": "1.0.0-next.28",
-    "@tailwindcss/forms": "^0.4.0"
+    "@tailwindcss/forms": "^0.4.0",
+    "axios": "^0.26.0",
+    "dotenv": "^16.0.0",
+    "firebase": "9.4.1"
   }
 }
