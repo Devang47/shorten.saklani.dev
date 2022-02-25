@@ -38,7 +38,7 @@
   "dependencies": {
     "@rgossiaux/svelte-headlessui": "^1.0.0-beta.9",
     "@sveltejs/adapter-cloudflare": "^1.0.0-next.14",
-    "@sveltejs/adapter-static": "1.0.0-next.28",
+    "@sveltejs/adapter-static": "^1.0.0-next.28",
     "@tailwindcss/forms": "^0.4.0",
     "@zerodevx/svelte-toast": "^0.7.0",
     "dotenv": "^16.0.0",
