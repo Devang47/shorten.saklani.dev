@@ -16,16 +16,15 @@ const config = {
   },
 
   kit: {
-    // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte',
-    adapter: adapter(),
-    // adapter: adapter({
-    //   // default options are shown
-    //   pages: 'build',
-    //   assets: 'build',
-    //   fallback: null,
-    //   precompress: false,
-    // }),
+    adapter: adapter({
+      // default options are shown
+      pages: 'build',
+      assets: 'build',
+      fallback: null,
+      precompress: false
+    }),
+    ssr: false,
     vite: {
       resolve: {
         alias: {
