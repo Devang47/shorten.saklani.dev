@@ -11,6 +11,10 @@ const config = {
     postcss: true,
   }),
 
+  prerender: {
+    enabled: false
+  },
+
   kit: {
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte',
