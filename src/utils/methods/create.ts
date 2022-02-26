@@ -3,8 +3,8 @@ import { getRandomString, validURL } from '$utils/general';
 import { database } from '$utils/firebase';
 
 export const createShortURL = async (url: string, key: string) => {
-  if (!key || key !== import.meta.env.VITE_PRIVATEKEY) return { error: 'Invalid KEY' };
-  if (!validURL(url)) return { error: 'Invalid URL', result: null };
+  if (!key || key !== import.meta.env.VITE_PRIVATEKEY) return { error: 'Invalid KEY!!' };
+  if (!validURL(url)) return { error: 'Invalid URL!!', result: null };
 
   const result = await createReference(url);
   return { ...result, error: null };

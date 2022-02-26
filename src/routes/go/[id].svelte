@@ -1,9 +1,9 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
-
   import { page } from '$app/stores';
-  import { redirectToURL } from '$utils/methods/redirect';
   import { onMount } from 'svelte';
+
+  import { redirectToURL } from '$utils/methods/redirect';
 
   const id = $page.params.id;
   let data: string;
@@ -25,6 +25,6 @@
 
 <style lang="postcss">
   .response {
-    @apply text-white font-mono;
+    @apply text-black font-mono;
   }
 </style>

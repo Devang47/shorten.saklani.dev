@@ -3,19 +3,33 @@
   import { createShortURL } from '$utils/methods/create';
 
   let input = '';
+  const successTheme = {
+    theme: {
+      '--toastBackground': '#48BB78',
+      '--toastBarBackground': '#2F855A',
+    },
+  };
+
+  const errorTheme = {
+    theme: {
+      '--toastBackground': '#E0675A',
+      '--toastBarBackground': '#A34439',
+    },
+  };
+
   const handleCreate = async () => {
-    console.log('btn ckick');
-    toast.push('started');
+    toast.push('Started!', successTheme);
 
     const response = await createShortURL(input, import.meta.env.VITE_PRIVATEKEY as string);
 
     if (response.error) {
-      toast.push(response.error, { classes: ['custom'] });
+      toast.push(response.error, errorTheme);
       return;
     }
 
     input = response.result;
-    toast.push('Styled with custom class', { classes: ['custom'] });
+    toast.push('Done! & Copied to clipboard!', successTheme);
+    navigator.clipboard.writeText(input);
   };
 </script>
 
