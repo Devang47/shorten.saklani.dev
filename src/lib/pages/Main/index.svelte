@@ -31,7 +31,7 @@
               <span
                 class="inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200"
               >
-                <a href="https://github.com/Devang47/shorten.saklani.dev">
+                <a href="https://github.com/Devang47/tiny.saklani.dev">
                   <span
                     class="px-3 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-indigo-500 rounded-full"
                   >

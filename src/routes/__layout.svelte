@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-  <title>Custom URL Shortener</title>
+  <title>URL Shortener | Devang Saklani</title>
 </svelte:head>
 
 <SvelteToast />
