@@ -1,22 +1,18 @@
 import preprocess from 'svelte-preprocess';
-// import adapter from '@sveltejs/adapter-auto';
 import adapter from '@sveltejs/adapter-static';
 import path from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  // Consult https://github.com/sveltejs/svelte-preprocess
-  // for more information about preprocessors
   preprocess: preprocess({
     postcss: true,
   }),
 
   prerender: {
-    enabled: false
+    enabled: true
   },
 
   kit: {
-    target: '#svelte',
     adapter: adapter({
       // default options are shown
       pages: 'build',
@@ -24,7 +20,6 @@ const config = {
       fallback: null,
       precompress: false
     }),
-    ssr: false,
     vite: {
       resolve: {
         alias: {
