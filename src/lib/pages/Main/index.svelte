@@ -1,6 +1,6 @@
 <script lang="ts">
   import { toast } from '@zerodevx/svelte-toast';
-  import { createShortURL } from '$utils/methods/create';
+  import { createShortURL } from '$utils/methods/server';
 
   let input = '';
   const successTheme = {
@@ -20,7 +20,7 @@
   const handleCreate = async () => {
     toast.push('Started!', successTheme);
 
-    const response = await createShortURL(input, import.meta.env.VITE_PRIVATEKEY as string);
+    const response = await createShortURL(input);
 
     if (response.error) {
       toast.push(response.error, errorTheme);

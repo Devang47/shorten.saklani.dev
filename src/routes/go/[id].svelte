@@ -3,13 +3,13 @@
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
 
-  import { redirectToURL } from '$utils/methods/redirect';
+  import { getFullURL } from '$utils/methods/server';
 
   const id = $page.params.id;
   let data: string;
 
   onMount(async () => {
-    const response = await redirectToURL(id);
+    const response = await getFullURL(id);
     if (response.error) return (data = 'Not found!!');
     goto(response.result);
   });
