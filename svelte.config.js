@@ -20,6 +20,9 @@ const config = {
       fallback: null,
       precompress: false
     }),
+    prerender: {
+      default: true
+    },
     vite: {
       resolve: {
         alias: {
