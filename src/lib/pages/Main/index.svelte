@@ -19,22 +19,28 @@
   };
 
   const handleCreate = async () => {
-    toast.push('Started!', successTheme);
-    isLoading = true;
+    try {
+      toast.push('Started!', successTheme);
+      isLoading = true;
 
-    const response = await createShortURL(input);
+      const response = await createShortURL(input);
 
-    if (response.error) {
-      toast.push(response.error, errorTheme);
-      return;
+      if (response.error) {
+        isLoading = false;
+        toast.push(response.error, errorTheme);
+        return;
+      }
+
+      input = response.result;
+
+      isLoading = false;
+
+      navigator.clipboard.writeText(input);
+      toast.push('Done! & Copied to clipboard!', successTheme);
+    } catch (error) {
+      isLoading = false;
+      console.error(error);
     }
-
-    input = response.result;
-
-    isLoading = false;
-
-    navigator.clipboard.writeText(input);
-    toast.push('Done! & Copied to clipboard!', successTheme);
   };
 </script>
 
