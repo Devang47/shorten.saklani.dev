@@ -8,7 +8,6 @@ pnpm-lock.yaml
 .pnpm-debug.log
 dist
 package-lock.json
-yarn.lock
 /examples/**/.svelte
 /examples/**/build
 /packages/create-svelte/template/CHANGELOG.md
