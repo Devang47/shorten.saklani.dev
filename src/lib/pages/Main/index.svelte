@@ -3,6 +3,7 @@
   import { createShortURL } from '$utils/methods/server';
 
   let input = '';
+  let isLoading = false;
   const successTheme = {
     theme: {
       '--toastBackground': '#48BB78',
@@ -19,6 +20,7 @@
 
   const handleCreate = async () => {
     toast.push('Started!', successTheme);
+    isLoading = true;
 
     const response = await createShortURL(input);
 
@@ -28,8 +30,11 @@
     }
 
     input = response.result;
-    toast.push('Done! & Copied to clipboard!', successTheme);
+
+    isLoading = false;
+
     navigator.clipboard.writeText(input);
+    toast.push('Done! & Copied to clipboard!', successTheme);
   };
 </script>
 
@@ -85,6 +90,7 @@
                     <div class="min-w-0 flex-1">
                       <label for="url" class="sr-only">Enter URL:</label>
                       <input
+                        disabled={isLoading}
                         id="url"
                         bind:value={input}
                         type="url"
@@ -95,8 +101,9 @@
                     <div class="mt-3 sm:mt-0 sm:ml-3">
                       <button
                         on:click={handleCreate}
+                        disabled={isLoading}
                         type="submit"
-                        class="block w-full py-3 px-4 rounded-md shadow bg-indigo-500 text-white font-medium hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300 focus:ring-offset-gray-900"
+                        class="block w-full py-3 px-4 rounded-md shadow bg-indigo-500 text-white font-medium hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300 focus:ring-offset-gray-900 disabled:bg-gray-600"
                         >Shorten</button
                       >
                     </div>
@@ -118,7 +125,5 @@
         </div>
       </div>
     </div>
-
-    <!-- More main page content here... -->
   </main>
 </div>
